@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: #6a5acd;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #6a5acd;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4b3da6;
+        }
+
+        .back-btn {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .back-btn a {
+            text-decoration: none;
+            color: #6a5acd;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar Usuario</h1>
+        <form action="/usuarios/create" method="POST">
+            <label>Nombre</label>
+            <input type="text" name="nombre" required>
+
+            <label>Correo</label>
+            <input type="email" name="correo" required>
+
+            <label>Teléfono</label>
+            <input type="text" name="telefono" required>
+
+            <label>Contraseña</label>
+            <input type="password" name="contraseña" required>
+
+            <label>Tipo de usuario</label>
+            <select name="tipo" required>
+                <option value="admin">Administrador</option>
+                <option value="cliente">Cliente</option>
+                <option value="colaborador">Colaborador</option>
+            </select>
+
+            <button type="submit">Guardar Usuario</button>
+        </form>
+
+        <div class="back-btn">
+            <a href="/usuarios">⬅ Volver a la lista</a>
+        </div>
+        <div class="back-btn">
+    <a href="/" style="color: #6a5acd; font-weight:bold;">🏠 Volver al Inicio</a>
+</div>
+    </div>
+</body>
+</html>

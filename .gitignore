@@ -1,9 +1,12 @@
-# Node.js dependencies
+# Ignorar dependencias de Node.js
 node_modules/
 
-# Entornos
-.env
+# Archivos de logs
+*.log
 
-# Archivos de sistema
+# Archivos temporales de VSCode
+.vscode/
+
+# Sistema operativo
 .DS_Store
-npm-debug.log
+Thumbs.db

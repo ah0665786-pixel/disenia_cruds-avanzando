@@ -106,3 +106,5 @@ VALUES
 
 -- ✅ Verificación final
 SHOW TABLES;
+
+/* char de 32, telefono, nombre, correo, clave, tipo ¨*/
