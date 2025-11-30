@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Colaboradores</title>
+    <link rel="stylesheet" href="/usuarios/productos/form.css">
+</head>
+<body>
+<header>
+    <h1>Colaboradores</h1>
+    <a href="/admin/dashboard" class="back-button">← Dashboard</a>
+</header>
+
+<div class="container">
+    <a href="/colaboradores/create" class="back-button">+ Nuevo Colaborador</a>
+
+    <% colaboradores.forEach(c => { %>
+    <div class="card">
+        <h2><%= c.nombre %></h2>
+        <p><strong>Especialidad:</strong> <%= c.especialidad %></p>
+        <p><strong>Correo:</strong> <%= c.correo %></p>
+        <p><strong>Teléfono:</strong> <%= c.telefono %></p>
+        <p><strong>Disponibilidad:</strong> <span class="<%= c.disponibilidad %>"><%= c.disponibilidad %></span></p>
+        <div class="card-actions">
+            <a href="/colaboradores/edit/<%= c.id_colaborador %>">Editar</a>
+            <a href="/colaboradores/delete/<%= c.id_colaborador %>" onclick="return confirm('¿Eliminar este colaborador?')">Eliminar</a>
+        </div>
+    </div>
+    <% }) %>
+</div>
+</body>
+</html>

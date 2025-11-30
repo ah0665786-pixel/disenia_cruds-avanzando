@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Suscripciones</title>
+    <link rel="stylesheet" href="/usuarios/productos/form.css">
+</head>
+<body>
+<header>
+    <h1>Suscripciones</h1>
+    <a href="/admin/dashboard" class="back-button">← Dashboard</a>
+</header>
+
+<div class="container">
+    <a href="/suscripciones/create" class="back-button">+ Nueva Suscripción</a>
+
+    <% suscripciones.forEach(s => { %>
+    <div class="card">
+        <h2>Plan: <%= s.nombre_plan %></h2>
+        <p><strong>Usuario:</strong> <%= s.usuario %></p>
+        <p><strong>Precio Mensual:</strong> $<%= Number(s.precio_mensual).toFixed(2) %></p>
+        <p><strong>Inicio:</strong> <%= new Date(s.fecha_inicio).toLocaleDateString() %></p>
+        <p><strong>Fin:</strong> <%= new Date(s.fecha_fin).toLocaleDateString() %></p>
+        <p><strong>Estado:</strong> <span class="<%= s.estado %>"><%= s.estado %></span></p>
+        <div class="card-actions">
+            <a href="/suscripciones/edit/<%= s.id_suscripcion %>">Editar</a>
+            <a href="/suscripciones/delete/<%= s.id_suscripcion %>" onclick="return confirm('¿Eliminar esta suscripción?')">Eliminar</a>
+        </div>
+    </div>
+    <% }) %>
+</div>
+</body>
+</html>

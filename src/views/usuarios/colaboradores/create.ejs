@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Colaborador</title>
+    <link rel="stylesheet" href="/usuarios/productos/form.css">
+</head>
+<body>
+<header>
+    <h1>Crear Colaborador</h1>
+    <a href="/colaboradores" class="back-button">← Volver</a>
+</header>
+
+<div class="form-container">
+    <form action="/colaboradores/create" method="POST">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        <label>Especialidad:</label>
+        <input type="text" name="especialidad">
+
+        <label>Correo:</label>
+        <input type="email" name="correo">
+
+        <label>Teléfono:</label>
+        <input type="text" name="telefono">
+
+        <label>Disponibilidad:</label>
+        <select name="disponibilidad" required>
+            <option value="disponible">Disponible</option>
+            <option value="ocupado">Ocupado</option>
+        </select>
+
+        <button type="submit">Crear Colaborador</button>
+    </form>
+</div>
+</body>
+</html>

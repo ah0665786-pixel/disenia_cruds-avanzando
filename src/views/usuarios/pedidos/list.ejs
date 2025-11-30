@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedidos</title>
+    <link rel="stylesheet" href="/usuarios/productos/form.css">
+</head>
+<body>
+<header>
+    <h1>Pedidos</h1>
+    <a href="/admin/dashboard" class="back-button">← Dashboard</a>
+</header>
+
+<div class="container">
+    <a href="/pedidos/create" class="back-button">+ Nuevo Pedido</a>
+
+    <% pedidos.forEach(p => { %>
+    <div class="card">
+        <h2>Pedido #<%= p.id_pedido %></h2>
+        <p><strong>Cliente:</strong> <%= p.cliente %></p>
+        <p><strong>Producto:</strong> <%= p.producto %></p>
+        <p><strong>Fecha:</strong> <%= new Date(p.fecha_pedido).toLocaleDateString() %></p>
+        <p><strong>Estado:</strong> <span class="<%= p.estado %>"><%= p.estado %></span></p>
+        <div class="card-actions">
+            <a href="/pedidos/edit/<%= p.id_pedido %>">Editar</a>
+            <a href="/pedidos/delete/<%= p.id_pedido %>" onclick="return confirm('¿Eliminar este pedido?')">Eliminar</a>
+        </div>
+    </div>
+    <% }) %>
+</div>
+</body>
+</html>

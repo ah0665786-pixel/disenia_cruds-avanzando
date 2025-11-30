@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/usuarios/admin.css">
+
+<h1>Agregar Producto</h1>
+<form action="/productos/create" method="POST" class="form-card">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
+
+    <label>Descripción:</label>
+    <textarea name="descripcion"></textarea>
+
+    <label>Tipo:</label>
+    <select name="tipo">
+        <option value="diseño personalizado">Diseño Personalizado</option>
+        <option value="plantilla">Plantilla</option>
+        <option value="paquete">Paquete</option>
+        <option value="suscripción">Suscripción</option>
+    </select>
+
+    <label>Precio:</label>
+    <input type="number" name="precio" step="0.01" required>
+
+    <label>Tiempo de entrega:</label>
+    <input type="text" name="tiempo_entrega">
+
+    <label>Estado:</label>
+    <select name="estado">
+        <option value="activo">Activo</option>
+        <option value="inactivo">Inactivo</option>
+    </select>
+
+    <button type="submit" class="btn-primary">Guardar Producto</button>
+</form>

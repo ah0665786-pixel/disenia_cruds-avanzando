@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Pedido</title>
+    <link rel="stylesheet" href="/usuarios/productos/form.css">
+</head>
+<body>
+<header>
+    <h1>Crear Pedido</h1>
+    <a href="/pedidos" class="back-button">← Volver</a>
+</header>
+
+<div class="form-container">
+    <form action="/pedidos/create" method="POST">
+        <label>Cliente:</label>
+        <select name="id_usuario" required>
+            <% usuarios.forEach(u => { %>
+                <option value="<%= u.id_usuario %>"><%= u.nombre %></option>
+            <% }) %>
+        </select>
+
+        <label>Producto:</label>
+        <select name="id_producto" required>
+            <% productos.forEach(p => { %>
+                <option value="<%= p.id_producto %>"><%= p.nombre %></option>
+            <% }) %>
+        </select>
+
+        <label>Requerimientos:</label>
+        <textarea name="requerimientos" placeholder="Escribe los requerimientos del pedido"></textarea>
+
+        <label>Estado:</label>
+        <select name="estado" required>
+            <option value="pendiente">Pendiente</option>
+            <option value="en_proceso">En Proceso</option>
+            <option value="entregado">Entregado</option>
+            <option value="cancelado">Cancelado</option>
+        </select>
+
+        <button type="submit">Crear Pedido</button>
+    </form>
+</div>
+</body>
+</html>

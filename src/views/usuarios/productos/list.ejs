@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+    <link rel="stylesheet" href="/usuarios/productos/productos.css">
+</head>
+<body>
+<header>
+    <h1>Productos</h1>
+</header>
+
+<div class="container">
+    <% productos.forEach(p => { %>
+        <div class="card">
+            <h2><%= p.nombre %></h2>
+            <p><strong>Tipo:</strong> <%= p.tipo %></p>
+            <p><strong>Precio:</strong> $<%= Number(p.precio).toFixed(2) %></p>
+            <p><strong>Tiempo de entrega:</strong> <%= p.tiempo_entrega %></p>
+            <p><strong>Estado:</strong> <span class="<%= p.estado === 'activo' ? 'activo' : 'inactivo' %>"><%= p.estado %></span></p>
+
+            <div class="card-actions">
+                <a href="/productos/edit/<%= p.id_producto %>">Editar</a>
+                <a href="/productos/delete/<%= p.id_producto %>" onclick="return confirm('¿Seguro que deseas eliminar este producto?')">Eliminar</a>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+<div style="max-width:1200px;margin:2rem auto;">
+    <a href="/admin/dashboard" class="back-button">← Volver al Dashboard</a>
+</div>
+</body>
+</html>

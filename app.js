@@ -23,10 +23,19 @@ app.set('views', path.join(__dirname, 'src/views'));
 const usuariosRoutes = require('./routes/usuarios.routes');
 const authRoutes = require('./routes/auth.routes'); 
 const adminRoutes = require('./routes/admin.routes');   // 👈 AGRÉGALO
+const productosRoutes = require('./routes/productos.routes');
+const pedidosRoutes = require('./routes/pedidos.routes');
+const suscripcionesRoutes = require('./routes/suscripciones.routes');
+const colaboradoresRoutes = require('./routes/colaboradores.routes');
 
+app.use('/colaboradores', colaboradoresRoutes);
+app.use('/suscripciones', suscripcionesRoutes);
+app.use('/pedidos', pedidosRoutes);
+app.use('/productos', productosRoutes);
 app.use('/usuarios', usuariosRoutes);
 app.use('/', authRoutes);
 app.use('/admin', adminRoutes);   // 👈 ACTIVAR RUTA
+app.use('/usuarios', express.static(path.join(__dirname, 'src/views/usuarios')));
 
 app.use('/usuarios', usuariosRoutes);  // SOLO UNA VEZ
 app.use('/', authRoutes);              // Rutas de login/register

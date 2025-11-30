@@ -28,7 +28,9 @@ router.post('/login', async (req, res) => {
 
         // Guardar sesión
         req.session.usuario = usuario;
-        res.redirect('/usuarios');
+
+        // Redirigir al dashboard en vez de /usuarios
+        res.redirect('/admin/dashboard');
     } catch (error) {
         console.error(error);
         res.send('Error al iniciar sesión');

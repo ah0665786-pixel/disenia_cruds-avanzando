@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Suscripción</title>
+    <link rel="stylesheet" href="/usuarios/productos/form.css">
+</head>
+<body>
+<header>
+    <h1>Crear Suscripción</h1>
+    <a href="/suscripciones" class="back-button">← Volver</a>
+</header>
+
+<div class="form-container">
+    <form action="/suscripciones/create" method="POST">
+        <label>Usuario:</label>
+        <select name="id_usuario" required>
+            <% usuarios.forEach(u => { %>
+                <option value="<%= u.id_usuario %>"><%= u.nombre %></option>
+            <% }) %>
+        </select>
+
+        <label>Nombre del Plan:</label>
+        <input type="text" name="nombre_plan" required>
+
+        <label>Precio Mensual:</label>
+        <input type="number" step="0.01" name="precio_mensual" required>
+
+        <label>Fecha de Inicio:</label>
+        <input type="date" name="fecha_inicio" required>
+
+        <label>Fecha de Fin:</label>
+        <input type="date" name="fecha_fin" required>
+
+        <label>Estado:</label>
+        <select name="estado" required>
+            <option value="activa">Activa</option>
+            <option value="vencida">Vencida</option>
+            <option value="cancelada">Cancelada</option>
+        </select>
+
+        <button type="submit">Crear Suscripción</button>
+    </form>
+</div>
+</body>
+</html>

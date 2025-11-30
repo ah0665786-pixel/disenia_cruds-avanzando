@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Colaborador</title>
+    <link rel="stylesheet" href="/usuarios/productos/form.css">
+</head>
+<body>
+<header>
+    <h1>Editar Colaborador #<%= colaborador.id_colaborador %></h1>
+    <a href="/colaboradores" class="back-button">← Volver</a>
+</header>
+
+<div class="form-container">
+    <form action="/colaboradores/edit/<%= colaborador.id_colaborador %>" method="POST">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" value="<%= colaborador.nombre %>" required>
+
+        <label>Especialidad:</label>
+        <input type="text" name="especialidad" value="<%= colaborador.especialidad %>">
+
+        <label>Correo:</label>
+        <input type="email" name="correo" value="<%= colaborador.correo %>">
+
+        <label>Teléfono:</label>
+        <input type="text" name="telefono" value="<%= colaborador.telefono %>">
+
+        <label>Disponibilidad:</label>
+        <select name="disponibilidad" required>
+            <option value="disponible" <%= colaborador.disponibilidad === 'disponible' ? 'selected' : '' %>>Disponible</option>
+            <option value="ocupado" <%= colaborador.disponibilidad === 'ocupado' ? 'selected' : '' %>>Ocupado</option>
+        </select>
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</div>
+</body>
+</html>

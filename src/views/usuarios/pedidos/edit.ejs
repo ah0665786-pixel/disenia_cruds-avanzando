@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Pedido</title>
+    <link rel="stylesheet" href="/usuarios/productos/form.css">
+</head>
+<body>
+<header>
+    <h1>Editar Pedido #<%= pedido.id_pedido %></h1>
+    <a href="/pedidos" class="back-button">← Volver</a>
+</header>
+
+<div class="form-container">
+    <form action="/pedidos/edit/<%= pedido.id_pedido %>" method="POST">
+        <label>Cliente:</label>
+        <select name="id_usuario" required>
+            <% usuarios.forEach(u => { %>
+                <option value="<%= u.id_usuario %>" <%= u.id_usuario === pedido.id_usuario ? 'selected' : '' %>><%= u.nombre %></option>
+            <% }) %>
+        </select>
+
+        <label>Producto:</label>
+        <select name="id_producto" required>
+            <% productos.forEach(p => { %>
+                <option value="<%= p.id_producto %>" <%= p.id_producto === pedido.id_producto ? 'selected' : '' %>><%= p.nombre %></option>
+            <% }) %>
+        </select>
+
+        <label>Requerimientos:</label>
+        <textarea name="requerimientos"><%= pedido.requerimientos %></textarea>
+
+        <label>Estado:</label>
+        <select name="estado" required>
+            <option value="pendiente" <%= pedido.estado === 'pendiente' ? 'selected' : '' %>>Pendiente</option>
+            <option value="en_proceso" <%= pedido.estado === 'en_proceso' ? 'selected' : '' %>>En Proceso</option>
+            <option value="entregado" <%= pedido.estado === 'entregado' ? 'selected' : '' %>>Entregado</option>
+            <option value="cancelado" <%= pedido.estado === 'cancelado' ? 'selected' : '' %>>Cancelado</option>
+        </select>
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</div>
+</body>
+</html>
