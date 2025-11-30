@@ -1,0 +1,115 @@
+body {
+    display: flex;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-color: #f4f6f8;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1f2937;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar h2 {
+    text-align: center;
+    padding: 1.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color: #111827;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 1rem;
+}
+
+.menu-list li {
+    margin-bottom: 0.5rem;
+}
+
+.menu-list li a {
+    color: #d1d5db;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+}
+
+.menu-list li a:hover {
+    background-color: #3b82f6;
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.logout {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    color: #ef4444;
+    text-decoration: none;
+}
+
+.logout:hover {
+    background-color: #ef4444;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.dashboard h1 {
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+
+.card p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    color: #2563eb;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}

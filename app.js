@@ -1,3 +1,4 @@
+// app.js
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -19,19 +20,23 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src/views'));
 
 // 📌 Rutas
-const usuariosRoutes = require('./src/middleware/routes/usuarios.routes');
-const authRoutes = require('./src/middleware/routes/auth.routes'); // ✔ NUEVO
+const usuariosRoutes = require('./routes/usuarios.routes');
+const authRoutes = require('./routes/auth.routes'); 
+const adminRoutes = require('./routes/admin.routes');   // 👈 AGRÉGALO
 
 app.use('/usuarios', usuariosRoutes);
-app.use('/', authRoutes);  // ✔ IMPORTANTE
+app.use('/', authRoutes);
+app.use('/admin', adminRoutes);   // 👈 ACTIVAR RUTA
 
-// Página principal
+app.use('/usuarios', usuariosRoutes);  // SOLO UNA VEZ
+app.use('/', authRoutes);              // Rutas de login/register
+
+// Página principal: redirige al login
 app.get('/', (req, res) => {
-    res.render('usuarios/login');  // ✔ Ahora debe ir al login
+    res.render('usuarios/login');
 });
 
 // Servidor
 app.listen(3000, () => {
     console.log('Servidor corriendo en http://localhost:3000');
 });
-

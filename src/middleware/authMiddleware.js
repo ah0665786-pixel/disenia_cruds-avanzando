@@ -1,8 +1,9 @@
-function isAuth(req, res, next) {
-    if (req.session.usuario) {
-        return next();
+function authMiddleware(req, res, next) {
+    if (!req.session.usuario) {
+        return res.redirect('/login');
     }
-    res.redirect('/login');
+    next();
 }
 
-module.exports = isAuth;
+module.exports = authMiddleware;
+
